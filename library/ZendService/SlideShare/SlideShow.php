@@ -8,7 +8,7 @@
  * @package   Zend_Service
  */
 
-namespace Zend\Service\SlideShare;
+namespace ZendService\SlideShare;
 
 /**
  * The SlideShow class represents a slide show on the slideshare.net servers.

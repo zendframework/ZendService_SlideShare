@@ -8,7 +8,7 @@
  * @package   Zend_Service
  */
 
-namespace Zend\Service\SlideShare\Exception;
+namespace ZendService\SlideShare\Exception;
 
 /**
  * @category   Zend

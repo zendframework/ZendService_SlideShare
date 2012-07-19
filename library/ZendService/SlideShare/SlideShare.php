@@ -8,7 +8,7 @@
  * @package   Zend_Service
  */
 
-namespace Zend\Service\SlideShare;
+namespace ZendService\SlideShare;
 
 use SimpleXMLElement;
 use Zend\Cache\StorageFactory as CacheFactory;
@@ -18,14 +18,14 @@ use Zend\Http\Exception as HttpException;
 use Zend\Http\Request as HttpRequest;
 
 /**
- * The Zend\Service\SlideShare component is used to interface with the
+ * The ZendService\SlideShare component is used to interface with the
  * slideshare.net web server to retrieve slide shows hosted on the web site for
  * display or other processing.
  *
  * @category   Zend
  * @package    Zend_Service
  * @subpackage SlideShare
- * @throws     Zend\Service\SlideShare\Exception
+ * @throws     ZendService\SlideShare\Exception
  */
 class SlideShare
 {
@@ -128,7 +128,7 @@ class SlideShare
      * be used.
      *
      * @param Zend\Http\Client $client The HTTP client instance to use
-     * @return Zend\Service\SlideShare\SlideShare
+     * @return ZendService\SlideShare\SlideShare
      */
     public function setHttpClient(HttpClient $httpClient)
     {
@@ -151,7 +151,7 @@ class SlideShare
      * Sets the CacheStorage object to use to cache the results of API queries
      *
      * @param  CacheStorage $cacheobject The CacheStorage object used
-     * @return Zend\Service\SlideShare\SlideShare
+     * @return ZendService\SlideShare\SlideShare
      */
     public function setCacheObject(CacheStorage $cacheobject)
     {
@@ -207,7 +207,7 @@ class SlideShare
      * Sets the user name to use for API calls
      *
      * @param string $un The username to use
-     * @return Zend\Service\SlideShare\SlideShare
+     * @return ZendService\SlideShare\SlideShare
      */
     public function setUserName($un)
     {
@@ -229,7 +229,7 @@ class SlideShare
      * Sets the password to use in API calls
      *
      * @param string $pw The password to use
-     * @return Zend\Service\SlideShare\SlideShare
+     * @return ZendService\SlideShare\SlideShare
      */
     public function setPassword($pw)
     {
@@ -251,7 +251,7 @@ class SlideShare
      * Sets the API key to be used in making API calls
      *
      * @param string $key The API key to use
-     * @return Zend\Service\SlideShare\SlideShare
+     * @return ZendService\SlideShare\SlideShare
      */
     public function setApiKey($key)
     {
@@ -273,7 +273,7 @@ class SlideShare
      * Sets the shared secret used in making API calls
      *
      * @param string $secret the shared secret
-     * @return Zend\Service\SlideShare\SlideShare
+     * @return ZendService\SlideShare\SlideShare
      */
     public function setSharedSecret($secret)
     {
@@ -284,10 +284,10 @@ class SlideShare
     /**
      * Uploads the specified Slide show the the server
      *
-     * @param Zend\Service\SlideShare\SlideShow $ss The slide show object representing the slide show to upload
+     * @param ZendService\SlideShare\SlideShow $ss The slide show object representing the slide show to upload
      * @param boolean $makeSourcePublic Determines if the slide show's source file is public or not upon upload
-     * @throws \Zend\Service\SlideShare\Exception
-     * @return Zend\Service\SlideShare\SlideShow The passed Slide show object, with the new assigned ID provided
+     * @throws \ZendService\SlideShare\Exception
+     * @return ZendService\SlideShare\SlideShow The passed Slide show object, with the new assigned ID provided
      */
     public function uploadSlideShow(SlideShow $ss, $makeSourcePublic = true)
     {
@@ -425,7 +425,7 @@ class SlideShare
      * @param string $username The username to retrieve slide shows from
      * @param int $offset The offset of the list to start retrieving from
      * @param int $limit The maximum number of slide shows to retrieve
-     * @return array An array of Zend\Service\SlideShare\SlideShow objects
+     * @return array An array of ZendService\SlideShare\SlideShow objects
      */
     public function getSlideShowsByUsername($username, $offset = null, $limit = null)
     {

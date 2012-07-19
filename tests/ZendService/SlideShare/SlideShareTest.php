@@ -8,10 +8,10 @@
  * @package   Zend_Service
  */
 
-namespace ZendTest\Service\SlideShare;
+namespace ZendServiceTest\SlideShare;
 
-use Zend\Service\SlideShare;
-use Zend\Service\SlideShare\SlideShare as SlideShareService;
+use ZendService\SlideShare;
+use ZendService\SlideShare\SlideShare as SlideShareService;
 use Zend\Cache\StorageFactory as CacheFactory;
 use Zend\Cache\Storage\Adapter\AdapterInterface as CacheAdapter;
 
@@ -27,14 +27,14 @@ class SlideShareTest extends \PHPUnit_Framework_TestCase
     /**
      * The Slide share object instance
      *
-     * @var \Zend\Service\SlideShare
+     * @var \ZendService\SlideShare
      */
     protected static $_ss;
 
     /**
      * Enter description here...
      *
-     * @return \Zend\Service\SlideShare\SlideShare
+     * @return \ZendService\SlideShare\SlideShare
      */
     protected function _getSSObject()
     {
@@ -140,7 +140,7 @@ class SlideShareTest extends \PHPUnit_Framework_TestCase
 
     public function testUploadSlideShowInvalidFileException()
     {
-        $this->setExpectedException('\Zend\Service\SlideShare\Exception\InvalidArgumentException',
+        $this->setExpectedException('\ZendService\SlideShare\Exception\InvalidArgumentException',
                     'Specified Slideshow for upload not found or unreadable');
 
         $ss = $this->_getSSObject();
