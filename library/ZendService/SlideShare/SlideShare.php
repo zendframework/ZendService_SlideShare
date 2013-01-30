@@ -50,12 +50,12 @@ class SlideShare
     /**
      * Slide share Web service communication URIs
      */
-    const SERVICE_UPLOAD_URI                  = 'http://www.slideshare.net/api/2/upload_slideshow';
-    const SERVICE_GET_SHOW_URI                = 'http://www.slideshare.net/api/2/get_slideshow';
-    const SERVICE_GET_SHOW_BY_USER_URI        = 'http://www.slideshare.net/api/2/get_slideshows_by_user';
-    const SERVICE_GET_SHOW_BY_TAG_URI         = 'http://www.slideshare.net/api/2/get_slideshows_by_tag';
-    const SERVICE_GET_SHOW_BY_GROUP_URI       = 'http://www.slideshare.net/api/2/get_slideshows_by_group';
-    const SERVICE_SEARCH_SLIDESHOWS_URI       = 'http://www.slideshare.net/api/2/search_slideshows';
+    const SERVICE_UPLOAD_URI                  = 'https://www.slideshare.net/api/2/upload_slideshow';
+    const SERVICE_GET_SHOW_URI                = 'https://www.slideshare.net/api/2/get_slideshow';
+    const SERVICE_GET_SHOW_BY_USER_URI        = 'https://www.slideshare.net/api/2/get_slideshows_by_user';
+    const SERVICE_GET_SHOW_BY_TAG_URI         = 'https://www.slideshare.net/api/2/get_slideshows_by_tag';
+    const SERVICE_GET_SHOW_BY_GROUP_URI       = 'https://www.slideshare.net/api/2/get_slideshows_by_group';
+    const SERVICE_SEARCH_SLIDESHOWS_URI       = 'https://www.slideshare.net/api/2/search_slideshows';
 
     /**
      * The MIME type of Slideshow files
