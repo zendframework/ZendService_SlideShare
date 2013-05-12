@@ -338,7 +338,7 @@ class SlideShare
         $httpClient->setEncType(HttpClient::ENC_URLENCODED);
 
         try {
-            $response = $httpClient->send();
+            $response = $httpClient->send($request);
         } catch(HttpException\ExceptionInterface $e) {
             throw new HttpException\RuntimeException("Service Request Failed: {$e->getMessage()}", 0, $e);
         }
@@ -394,7 +394,7 @@ class SlideShare
             $httpClient->setEncType(HttpClient::ENC_URLENCODED);
 
             try {
-                $response = $httpClient->send();
+                $response = $httpClient->send($request);
             } catch(HttpException\ExceptionInterface $e) {
                 throw new HttpException\RuntimeException("Service Request Failed: {$e->getMessage()}", 0, $e);
             }
@@ -532,7 +532,7 @@ class SlideShare
             $httpClient->setEncType(HttpClient::ENC_URLENCODED);
 
             try {
-                $response = $httpClient->send();
+                $response = $httpClient->send($request);
             } catch(HttpException\ExceptionInterface $e) {
                 throw new HttpException\RuntimeException("Service Request Failed: {$e->getMessage()}", 0, $e);
             }
@@ -597,7 +597,7 @@ class SlideShare
             $httpClient->setEncType(HttpClient::ENC_URLENCODED);
 
             try {
-                $response = $httpClient->send();
+                $response = $httpClient->send($request);
             } catch(HttpException\ExceptionInterface $e) {
                 throw new HttpException\RuntimeException("Service Request Failed: {$e->getMessage()}", 0, $e);
             }
