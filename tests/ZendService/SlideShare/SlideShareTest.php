@@ -10,6 +10,7 @@
 
 namespace ZendServiceTest\SlideShare;
 
+use Zend\Http\Client as HttpClient;
 use ZendService\SlideShare;
 use ZendService\SlideShare\SlideShare as SlideShareService;
 use Zend\Cache\StorageFactory as CacheFactory;
@@ -39,10 +40,14 @@ class SlideShareTest extends \PHPUnit_Framework_TestCase
     protected function _getSSObject()
     {
         $ss = new SlideShareService(TESTS_ZEND_SERVICE_SLIDESHARE_APIKEY,
-                                                 TESTS_ZEND_SERVICE_SLIDESHARE_SHAREDSECRET,
-                                                 TESTS_ZEND_SERVICE_SLIDESHARE_USERNAME,
-                                                 TESTS_ZEND_SERVICE_SLIDESHARE_PASSWORD,
-                                                 TESTS_ZEND_SERVICE_SLIDESHARE_SLIDESHOWID);
+                                    TESTS_ZEND_SERVICE_SLIDESHARE_SHAREDSECRET,
+                                    TESTS_ZEND_SERVICE_SLIDESHARE_USERNAME,
+                                    TESTS_ZEND_SERVICE_SLIDESHARE_PASSWORD,
+                                    new HttpClient(null, array(
+                                        'maxredirects'  => 2, 
+                                        'timeout'       => 5, 
+                                        'sslverifypeer' => false
+                                    )));
 
         $cache = CacheFactory::adapterFactory('memory', array('memory_limit' => 0));
         $ss->setCacheObject($cache);
@@ -130,6 +135,7 @@ class SlideShareTest extends \PHPUnit_Framework_TestCase
         } catch(Exception $e) {
             $this->fail("Exception Caught retrieving Slideshow List (tag)");
         }
+        
 
         $this->assertTrue(is_array($results));
         $this->assertTrue(count($results) == 1);
@@ -206,7 +212,6 @@ class SlideShareTest extends \PHPUnit_Framework_TestCase
         $ss->addTag('fon');
         $ss->setThumbnailUrl('asdf');
         $ss->setTitle('title');
-        $ss->setTranscript('none');
 
         $this->assertEquals($ss->getDescription(), "Foo");
         $this->assertEquals($ss->getEmbedCode(), "Bar");
@@ -220,7 +225,6 @@ class SlideShareTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($ss->getTags(), array('bar', 'baz', 'fon'));
         $this->assertEquals($ss->getThumbnailUrl(), "asdf");
         $this->assertEquals($ss->getTitle(), "title");
-        $this->assertEquals($ss->getTranscript(), "none");
 
     }
 
