@@ -16,6 +16,7 @@ use Zend\Cache\Storage\StorageInterface as CacheStorage;
 use Zend\Http\Client as HttpClient;
 use Zend\Http\Exception as HttpException;
 use Zend\Http\Request as HttpRequest;
+use ZendXml\Security as XmlSecurity;
 
 /**
  * The ZendService\SlideShare component is used to interface with the
@@ -343,7 +344,7 @@ class SlideShare
             throw new HttpException\RuntimeException("Service Request Failed: {$e->getMessage()}", 0, $e);
         }
 
-        $sxe = simplexml_load_string($response->getBody());
+        $sxe = XmlSecurity::scan($response->getBody());
 
         if ($sxe->getName() == "SlideShareServiceError") {
             $message = (string) $sxe->Message[0];
@@ -399,7 +400,7 @@ class SlideShare
                 throw new HttpException\RuntimeException("Service Request Failed: {$e->getMessage()}", 0, $e);
             }
 
-            $sxe = simplexml_load_string($response->getBody());
+            $sxe = XmlSecurity::scan($response->getBody());
 
             if ($sxe->getName() == "SlideShareServiceError") {
                 $message = (string) $sxe->Message[0];
@@ -537,7 +538,7 @@ class SlideShare
                 throw new HttpException\RuntimeException("Service Request Failed: {$e->getMessage()}", 0, $e);
             }
 
-            $sxe = simplexml_load_string($response->getBody());
+            $sxe = XmlSecurity::scan($response->getBody());
 
             if ($sxe->getName() == "SlideShareServiceError") {
                 $message = (string) $sxe->Message[0];
@@ -602,7 +603,7 @@ class SlideShare
                 throw new HttpException\RuntimeException("Service Request Failed: {$e->getMessage()}", 0, $e);
             }
 
-            $sxe = simplexml_load_string($response->getBody());
+            $sxe = XmlSecurity::scan($response->getBody());
 
             if ($sxe->getName() == "SlideShareServiceError") {
                 $message = (string) $sxe->Message[0];
