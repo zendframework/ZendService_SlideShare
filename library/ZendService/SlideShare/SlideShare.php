@@ -340,7 +340,7 @@ class SlideShare
         $httpClient->setFileUpload($filename, 'slideshow_srcfile');
         
         try {
-            $response = $httpClient->send();
+            $response = $httpClient->send($request);
         } catch(HttpException\ExceptionInterface $e) {
             throw new HttpException\RuntimeException("Service Request Failed: {$e->getMessage()}", 0, $e);
         }
