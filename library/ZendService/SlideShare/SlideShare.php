@@ -335,9 +335,10 @@ class SlideShare
         $request->setUri(self::SERVICE_UPLOAD_URI);
         $request->getPost()->fromArray($params);
         $request->setMethod(HttpRequest::METHOD_POST);
-        $request->getFile()->set('slideshow_srcfile', $filename);
         $httpClient->setEncType(HttpClient::ENC_URLENCODED);
-
+        $httpClient->setRequest($request);
+        $httpClient->setFileUpload($filename, 'slideshow_srcfile');
+        
         try {
             $response = $httpClient->send();
         } catch(HttpException\ExceptionInterface $e) {
@@ -395,7 +396,7 @@ class SlideShare
             $httpClient->setEncType(HttpClient::ENC_URLENCODED);
 
             try {
-                $response = $httpClient->send();
+                $response = $httpClient->send($request);
             } catch(HttpException\ExceptionInterface $e) {
                 throw new HttpException\RuntimeException("Service Request Failed: {$e->getMessage()}", 0, $e);
             }
@@ -533,7 +534,7 @@ class SlideShare
             $httpClient->setEncType(HttpClient::ENC_URLENCODED);
 
             try {
-                $response = $httpClient->send();
+                $response = $httpClient->send($request);
             } catch(HttpException\ExceptionInterface $e) {
                 throw new HttpException\RuntimeException("Service Request Failed: {$e->getMessage()}", 0, $e);
             }
@@ -598,7 +599,7 @@ class SlideShare
             $httpClient->setEncType(HttpClient::ENC_URLENCODED);
 
             try {
-                $response = $httpClient->send();
+                $response = $httpClient->send($request);
             } catch(HttpException\ExceptionInterface $e) {
                 throw new HttpException\RuntimeException("Service Request Failed: {$e->getMessage()}", 0, $e);
             }
